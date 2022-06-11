@@ -146,7 +146,7 @@
     <Content Include="Pics\monkey.png" />
     <Content Include="Pics\pikatsu.png" />
     <Content Include="PlayersInfo.txt" />
-    <Content Include="squirtle.png" />
+    <Content Include="Pics\squirtle.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
