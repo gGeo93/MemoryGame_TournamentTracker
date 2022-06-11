@@ -12,7 +12,7 @@ namespace MemoryGame
 {
     public partial class Form1 : Form
     {
-        const string partOfTheAbsolutePicsPath = @"C:\Users\USER\Desktop\Memory Game Tournament\MemoryGameTournamentTracker-master\MemoryGame\MemoryGame\";
+        readonly string partOfTheRelativePicsPath = @"..\..\..\";
         Bitmap[] nullBitmap = new Bitmap[16];
         List<Bitmap> myImages = new List<Bitmap>();
         Bitmap[] MemoryBoard = new Bitmap[16];
@@ -58,21 +58,21 @@ namespace MemoryGame
 
         private void DragTheImages()
         {
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "pikatsu.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "pikatsu.png"));
             myImages.Add(myImages[0]);
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "bulbasar.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "bulbasar.png"));
             myImages.Add(myImages[2]);
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "charizard.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "charizard.png"));
             myImages.Add(myImages[4]);
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "jigglypuff.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "jigglypuff.png"));
             myImages.Add(myImages[6]);
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "magircap.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "magircap.png"));
             myImages.Add(myImages[8]);
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "mewtwo.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "mewtwo.png"));
             myImages.Add(myImages[10]);
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "monkey.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "monkey.png"));
             myImages.Add(myImages[12]);
-            myImages.Add(new Bitmap(partOfTheAbsolutePicsPath + "squirtle.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "squirtle.png"));
             myImages.Add(myImages[14]);
         }
         private void BoardFill()

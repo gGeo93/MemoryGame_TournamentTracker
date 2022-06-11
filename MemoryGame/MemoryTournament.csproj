@@ -120,9 +120,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pikatsu.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BussinessLogic\BussinessLogic.csproj">
       <Project>{277613df-cbda-4693-a13e-ff5a3d19a36e}</Project>
       <Name>BussinessLogic</Name>
@@ -141,13 +138,13 @@
     <Content Include="bin\Debug\MemoryGame.pdb" />
     <Content Include="bin\Debug\Repository.dll" />
     <Content Include="bin\Debug\Repository.pdb" />
-    <Content Include="bulbasar.png" />
-    <Content Include="charizard.png" />
-    <Content Include="jigglypuff.png" />
-    <Content Include="magircap.png" />
-    <Content Include="mewtwo.png" />
-    <Content Include="monkey.png" />
-    <Content Include="pikatsu.png" />
+    <Content Include="Pics\bulbasar.png" />
+    <Content Include="Pics\charizard.png" />
+    <Content Include="Pics\jigglypuff.png" />
+    <Content Include="Pics\magircap.png" />
+    <Content Include="Pics\mewtwo.png" />
+    <Content Include="Pics\monkey.png" />
+    <Content Include="Pics\pikatsu.png" />
     <Content Include="PlayersInfo.txt" />
     <Content Include="squirtle.png" />
   </ItemGroup>
