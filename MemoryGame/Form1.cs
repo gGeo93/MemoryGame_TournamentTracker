@@ -58,7 +58,7 @@ namespace MemoryGame
 
         private void DragTheImages()
         {
-            myImages.Add(new Bitmap(@"..\..\Pics\pikatsu.png"));
+            myImages.Add(new Bitmap(partOfTheRelativePicsPath + "pikatsu.png"));
             myImages.Add(myImages[0]);
             myImages.Add(new Bitmap(partOfTheRelativePicsPath + "bulbasar.png"));
             myImages.Add(myImages[2]);

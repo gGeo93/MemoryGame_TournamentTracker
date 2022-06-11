@@ -10,7 +10,7 @@ namespace Repository
 {
     public static class PlayersRepository
     {
-        static readonly string absolutePartOfPleyrsPath = @"C:\Users\USER\Desktop\Memory Game Tournament\MemoryGameTournamentTracker-master\MemoryGame\Repository\";
+        static readonly string absolutePartOfPleyrsPath = @"..\..\";
         static string TotalPlayerspath = absolutePartOfPleyrsPath + "TotalPlayersInfo.txt";
 
         static string TemporaryPlayerspath = absolutePartOfPleyrsPath + "TemporaryPlayersInfo.txt";

@@ -11,7 +11,7 @@ namespace Repository
 {
     public static class PrizesRepository
     {
-        static readonly string absolutePartOfPathPrizesFiles = @"C:\Users\USER\Desktop\Memory Game Tournament\MemoryGameTournamentTracker-master\MemoryGame\Repository\";
+        static readonly string absolutePartOfPathPrizesFiles = @"..\..\";
         
         static string PrizesPath = absolutePartOfPathPrizesFiles + "Prizesinfo.txt";
 
