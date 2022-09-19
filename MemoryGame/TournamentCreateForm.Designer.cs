@@ -1,6 +1,6 @@
 ﻿namespace MemoryGame
 {
-    partial class TournamentCreate
+    partial class TournamentCreateForm
     {
         /// <summary>
         /// Required designer variable.

@@ -57,7 +57,7 @@ namespace MemoryGame
 
             this.Hide();
 
-            TournamentCreate TourCreate = new TournamentCreate(true);
+            TournamentCreateForm TourCreate = new TournamentCreateForm(true);
 
             TourCreate.ShowDialog();
 

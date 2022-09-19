@@ -12,7 +12,7 @@ using ClassLibrary;
 
 namespace MemoryGame
 {
-    public partial class TournamentCreate : Form
+    public partial class TournamentCreateForm : Form
     {
         private static TournamentMode TourMode = new TournamentMode();
 
@@ -22,14 +22,15 @@ namespace MemoryGame
 
         private bool IsLoading { get; set; } = false;
 
-        public TournamentCreate()
+        public TournamentCreateForm()
         {
             InitializeComponent();
+            CreatePlayerBussLogic.InitializeFilesOnPrimaryLoad();
             TournamentName.Text = "Memory Game Competition";
             EntryFee.Text = "30";
         }
 
-        public TournamentCreate(bool CPL)
+        public TournamentCreateForm(bool CPL)
         {
             InitializeComponent();
             TournamentName.Text = "Memory Game Competition";
@@ -117,11 +118,19 @@ namespace MemoryGame
 
         private void DeleteSelectedPlayer_Click(object sender, EventArgs e)
         {
-            CreatePlayerBussLogic.Serializes(listOfPlayers.SelectedItem.ToString());
-            listOfPlayers.Items.Clear();
-            PeopleAfterTheRemove.Clear();
-            PeopleAfterTheRemove = CreatePlayerBussLogic.Deserialize();
-            FillingTheListOfPlayers(PeopleAfterTheRemove);
+            string selectedParticipant = listOfPlayers.Text;
+            if ( selectedParticipant != null && selectedParticipant != string.Empty)
+            {
+                CreatePlayerBussLogic.Serializes(listOfPlayers.SelectedItem.ToString());
+                listOfPlayers.Items.Clear();
+                PeopleAfterTheRemove.Clear();
+                PeopleAfterTheRemove = CreatePlayerBussLogic.Deserialize();
+                FillingTheListOfPlayers(PeopleAfterTheRemove);
+            }
+            else 
+            {
+                MessageBox.Show("No participant selected.Please select the participant you wish to remove");
+            }
         }
 
         private void DeleteSelectedPrize_Click(object sender, EventArgs e)
@@ -139,10 +148,17 @@ namespace MemoryGame
 
         private void CreateTournament_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            TournamentRoundsForm TR = new TournamentRoundsForm();
-            TR.ShowDialog();
-            this.Close();
+            if (PeopleAfterTheRemove.Count >= 2)
+            {
+                this.Hide();
+                TournamentRoundsForm TR = new TournamentRoundsForm();
+                TR.ShowDialog();
+                this.Close();
+            }
+            else 
+            {
+                MessageBox.Show("Not enough Participants.");
+            }
         }
 
         

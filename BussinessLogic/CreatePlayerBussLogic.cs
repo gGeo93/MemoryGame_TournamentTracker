@@ -32,18 +32,11 @@ namespace BussinessLogic
             PeopleToSerelialize.Clear();
         }
 
-        public static void AddElementsToPlayersInfoTxt(List<Person> People, string nulll)
+        public static void InitializeFilesOnPrimaryLoad() 
         {
-
+            PlayersRepository.InitializeAllTextFiles();
         }
-
-
-        public static void DragElementsFromPlayersInfoTxt()//Πρόβλημα
-        {
-            playersInfo = PlayersRepository.OutputPlayersFromTxt();
-        }
-
-        public static void DragElementsFromPlayersInfoTxt(string nulll)//Πρόβλημα
+        public static void DragElementsFromPlayersInfoTxt(string nulll)
         {
             playersInfo = PlayersRepository.OutputPlayersFromTxt(null);
         }

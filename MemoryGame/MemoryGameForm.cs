@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MemoryGame
 {
-    public partial class Form1 : Form
+    public partial class MemoryGameForm : Form
     {
         readonly string partOfTheRelativePicsPath = @"..\..\Pics\";
         Bitmap[] nullBitmap = new Bitmap[16];
@@ -22,7 +22,7 @@ namespace MemoryGame
         int NumberOfTries = 10;
         bool EndOfTheGame = false;
 
-        public Form1()
+        public MemoryGameForm()
         {
             InitializeComponent();
             DragTheImages();

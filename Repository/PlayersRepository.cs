@@ -10,16 +10,16 @@ namespace Repository
 {
     public static class PlayersRepository
     {
-        static readonly string absolutePartOfPleyrsPath = @"..\..\";
-        static string TotalPlayerspath = absolutePartOfPleyrsPath + "TotalPlayersInfo.txt";
+        static readonly string relativePartOfPlayersPath = @"..\..\";
+        static string totalPlayerspath = relativePartOfPlayersPath + "TotalPlayersInfo.txt";
 
-        static string TemporaryPlayerspath = absolutePartOfPleyrsPath + "TemporaryPlayersInfo.txt";
+        static string temporaryPlayerspath = relativePartOfPlayersPath + "TemporaryPlayersInfo.txt";
 
-        static string MiddleFilePath = absolutePartOfPleyrsPath + "MiddleFilePath.txt";
+        static string middleFilePath = relativePartOfPlayersPath + "MiddleFilePath.txt";
 
         private static void InputTemporaryPlayersToTxt(List<Person> Players)
         {
-            StreamWriter strw = new StreamWriter(TemporaryPlayerspath);
+            StreamWriter strw = new StreamWriter(temporaryPlayerspath);
 
             foreach (var item in Players)
             {
@@ -36,28 +36,44 @@ namespace Repository
         {
             string[] strR = OutputPlayersFromTxt();
 
-            File.AppendAllLines(TotalPlayerspath, strR);
+            File.AppendAllLines(totalPlayerspath, strR);
 
-            string[] RemovingBlankLine = File.ReadAllLines(TotalPlayerspath);
+            string[] RemovingBlankLine = File.ReadAllLines(totalPlayerspath);
 
             RemovingBlankLine.ToList().Remove("");
 
-            File.WriteAllLines(TotalPlayerspath, RemovingBlankLine);
+            File.WriteAllLines(totalPlayerspath, RemovingBlankLine);
 
             strR = OutputPlayersFromTxt(null);
 
-            File.Delete(TotalPlayerspath);
+            File.Delete(totalPlayerspath);
 
-            File.WriteAllLines(TotalPlayerspath, strR);
+            File.WriteAllLines(totalPlayerspath, strR);
         }
-
+        private static void InitializeFile(string path) 
+        {
+            if (File.Exists(path))
+            {
+                File.WriteAllText(path, "");
+            }
+            else
+            {
+                File.Create(path);
+            }
+        }
+        public static void InitializeAllTextFiles() 
+        {
+            InitializeFile(totalPlayerspath);
+            InitializeFile(temporaryPlayerspath);
+            InitializeFile(middleFilePath);
+        }
         public static void RemovePlayerFromTxt(string PlayerToRemove)
         {
             string lineOfAplayer = null;
 
-            StreamReader strR = new StreamReader(TotalPlayerspath);
+            StreamReader strR = new StreamReader(totalPlayerspath);
 
-            StreamWriter strW = new StreamWriter(MiddleFilePath, false);
+            StreamWriter strW = new StreamWriter(middleFilePath, false);
 
             while ((lineOfAplayer = strR.ReadLine()) != null)
             {
@@ -71,15 +87,15 @@ namespace Repository
             strR.Close();
             strW.Close();
 
-            File.Delete(TotalPlayerspath);
-            File.Copy(MiddleFilePath, TotalPlayerspath);
+            File.Delete(totalPlayerspath);
+            File.Copy(middleFilePath, totalPlayerspath);
 
             AutoIncrement();
         }
 
         private static void AutoIncrement()
         {
-            string[] strArray = File.ReadAllLines(TotalPlayerspath);
+            string[] strArray = File.ReadAllLines(totalPlayerspath);
             string[] helpingArray = new string[10];
             int k = 0;
             for (int i = 0; i < strArray.Length; i++)
@@ -91,7 +107,7 @@ namespace Repository
                     k += 1;
                 }
             }
-            File.WriteAllLines(TotalPlayerspath, strArray);
+            File.WriteAllLines(totalPlayerspath, strArray);
         }
 
         public static void InputPlayersToTxt(List<Person> Players)
@@ -106,7 +122,7 @@ namespace Repository
         public static string[] OutputPlayersFromTxt()
         {
             int counterForAutoIncrement = 0;
-            string[] strArray = File.ReadAllLines(TemporaryPlayerspath);
+            string[] strArray = File.ReadAllLines(temporaryPlayerspath);
             string str;
             for (int i = 0; i < strArray.Length; i++)
             {
@@ -124,7 +140,7 @@ namespace Repository
         public static string[] OutputPlayersFromTxt(string nullableInput)
         {
             int counterForAutoIncrement = 0;
-            string[] strArray = File.ReadAllLines(TotalPlayerspath);
+            string[] strArray = File.ReadAllLines(totalPlayerspath);
             string str;
             for (int i = 0; i < strArray.Length; i++)
             {

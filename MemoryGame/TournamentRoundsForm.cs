@@ -65,7 +65,7 @@ namespace MemoryGame
         
         private void MemoryGameEngine()
         {
-            Form1 frm1 = new Form1();
+            MemoryGameForm frm1 = new MemoryGameForm();
             frm1.AtoB(a);
             frm1.ShowDialog();
             ScoreOfChosenPlayertextBox.Text = frm1.ScoreOfTRF(this);
